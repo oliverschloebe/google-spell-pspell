@@ -1,4 +1,3 @@
-<?php
 class GenericSpellChecker {
 	//{{{ private properties
 	/**
@@ -560,7 +559,6 @@ class PspellSpellChecker extends GenericSpellChecker {
 }
 //}}}
 
-
 //{{{ class SpellChecker
 /**
 * Factory class
@@ -616,7 +614,7 @@ class SpellChecker {
 	function __construct($params = array()) {
 		$this->_options = $params;
 		$this->_err = array();
-		$this->_backends = array("Pspell" => true, "Aspell" => true, "Google" => true);
+		$this->_backends = array("Pspell" => true, "Aspell" => false, "Google" => false);
 
 		if(!is_readable($params["personal"]) && is_writable(dirname($params["personal"]))) {
 			$fp = fopen($params["personal"],"w");
@@ -650,87 +648,6 @@ class SpellChecker {
 		if(!extension_loaded("pspell")){
 			$this->_err["Can't use Pspell"] = array("The pspell extension is not loaded");
 			$this->_backends["Pspell"] = false;
-		}
-		//}}}
-
-		//{{{ check for the aspell executable
-		$aspell_ok = true;
-		$aspell_found = false;
-		$tmp_err = array();
-
-		if(isset($this->_options["aspellPath"])) {
-			if(!is_executable($this->_options["aspellPath"])){
-				$tmp_err[] = "Provided aspell does not exist or is not executable, trying to guess...";
-			} else {
-				$aspell_found = true;
-			}
-		} else {
-			$tmp_err[] = "Path to aspell not provided, trying to guess...";
-		}
-
-		if(!$aspell_found){
-			$aspell_ok = false;
-			$path = explode(":",$_ENV["PATH"]);
-			foreach($path as $p){
-				$ap_unix = "$p/aspell";
-				$ap_win = "$p/aspell.exe";
-				if(is_executable($ap_unix)){
-					$this->_options["aspellPath"] = $ap_unix;
-					$aspell_found = true;
-					break;
-				}
-
-				if(is_executable($ap_win)){
-					$this->_options["aspellPath"] = $ap_win;
-					$aspell_found = true;
-					break;
-				}
-			}
-		}
-
-		if(!$aspell_found)
-			$tmp_err[] = "No executable program called aspell or aspell.exe was found in PATH";
-
-		$aspell_ok = $aspell_found;
-
-		if(!function_exists("proc_open")) {
-			$tmp_err[] = "The proc_open() function doesn't exist";
-			$aspell_ok = false;
-		}
-
-		if(stristr(ini_get("disable_functions"),"proc_open") !== false) {
-			$tmp_err[] = "The proc_open() function is disabled.";
-			$aspell_ok = false;
-		}
-
-		if(!$aspell_ok){
-			$this->_err["Can't use aspell"] = $tmp_err;
-			$this->_backends["Aspell"] = false;
-		}
-		//}}}
-
-		//{{{ see if we can contact google
-		$google_ok = true;
-		$tmp_err = array();
-
-		if(!extension_loaded("curl")) {
-			$google_ok = false;
-			$tmp_err[] = "The curl extension is not loaded";
-		}
-
-		if(!extension_loaded("xml")) {
-			$google_ok = false;
-			$tmp_err[] = "The xml extension is not loaded";
-		}
-
-		if(stristr(ini_get("disable_functions"),"curl") !== false) {
-			$google_ok = false;
-			$tmp_err[] = "The curl functions are disabled";
-		}
-
-		if(!$google_ok){
-			$this->_err["Can't use google"] = $tmp_err;
-			$this->_backends["Google"] = false;
 		}
 		//}}}
 
@@ -772,4 +689,3 @@ class SpellChecker {
 	}
 	//}}}
 }
-?>
