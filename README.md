@@ -1,6 +1,6 @@
 # google-spell-pspell
 
-A PHP Pspell substitute for Google Spell Check XML API.
+A PHP Pspell substitute for Google Spell Check XML API. Pspell is required in order to work on your server.
 
 ## Why?
 
