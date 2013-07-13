@@ -1080,21 +1080,4 @@ class SpellChecker {
 	}
 	//}}}
 }
-
-
-/* USAGE */
-
-$content = "";
-$options = array(
-	"lang"					=> 'en',
-	"maxSuggestions"		=> 10,
-	"customDict"			=> 0,
-	"charset"				=> 'utf-8'
-);
-$factory = new SpellChecker($options);
-
-$spell = $factory->create(trim(""));
-
-header('Content-Type: text/xml; charset=UTF-8');
-echo $spell->toXML();
 ?>
