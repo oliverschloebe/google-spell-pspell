@@ -39,4 +39,4 @@ If you find a bug, or would like to contribute to the project please use the [Is
 
 ## Credits
 
-Mad props to [Sabin Iacob (m0n5t3r)](http://m0n5t3r.info). Code basically from [here](http://plugins.svn.wordpress.org/ajax-spell-checker/trunk/service/spell-check-library.php), but I removed the Aspell and Google API parts.
+Mad props to [Sabin Iacob (m0n5t3r)](http://m0n5t3r.info). Code basically from [here](http://plugins.svn.wordpress.org/ajax-spell-checker/trunk/service/spell-check-library.php), but I removed the Aspell and Google API parts and made it standalone-ready.
