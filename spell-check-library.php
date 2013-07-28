@@ -1,3 +1,4 @@
+<?php
 class GenericSpellChecker {
 	//{{{ private properties
 	/**
