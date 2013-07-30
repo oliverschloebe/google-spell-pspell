@@ -1,5 +1,5 @@
 <?php
-class GenericSpellChecker2 {
+class GenericSpellChecker3 {
 	//{{{ private properties
 	/**
 	* @var string HTML to check for spelling errors
