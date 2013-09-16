@@ -617,12 +617,12 @@ class SpellChecker {
 		$this->_err = array();
 		$this->_backends = array("Pspell" => true, "Aspell" => false, "Google" => false);
 
-		if(!is_readable($params["personal"]) && is_writable(dirname($params["personal"]))) {
+		if(isset($params["personal"]) && !is_readable($params["personal"]) && is_writable(dirname($params["personal"]))) {
 			$fp = fopen($params["personal"],"w");
 			fwrite($fp,"personal_ws-1.1 $params[lang] 0\n");
 			fclose($fp);
 		}
-		if(!is_readable($params["repl"]) && is_writable(dirname($params["repl"]))) {
+		if(isset($params["repl"]) && !is_readable($params["repl"]) && is_writable(dirname($params["repl"]))) {
 			$fp = fopen($params["repl"],"w");
 			fwrite($fp,"personal_repl-1.1 $params[lang] 0\n");
 			fclose($fp);
