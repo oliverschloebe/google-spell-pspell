@@ -92,16 +92,6 @@ class GenericSpellChecker {
 	var $_supportedLanguages;
 	//}}}
 
-	//{{{ public function GenericSpellChecker($text, &$options)
-	/**
-	* Decorates __construct for PHP4 compatibility
-	* @see __construct()
-	*/
-	function GenericSpellChecker($text, &$options) {
-		$this->__construct();
-	}
-	//}}}
-
 	//{{{ public function __construct($text, &$options)
 	/**
 	* @param int $text Text to check for spelling errors (can be HTML)
@@ -282,6 +272,16 @@ class GenericSpellChecker {
 
 		if($text)
 			$this->_buildOffsetTable();
+	}
+	//}}}
+
+	//{{{ public function GenericSpellChecker($text, &$options)
+	/**
+	* Decorates __construct for PHP4 compatibility
+	* @see __construct()
+	*/
+	function GenericSpellChecker($text, &$options) {
+		$this->__construct();
 	}
 	//}}}
 
