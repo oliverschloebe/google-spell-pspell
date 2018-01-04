@@ -525,6 +525,7 @@ class PspellSpellChecker extends GenericSpellChecker {
 	* the replacement pair to be stored
 	*/
 	function storeReplacement($wrong, $right){
+		list($wrong, $right) = func_get_args();
 		pspell_store_replacement($this->_pspell, $wrong, $right);
 		pspell_save_wordlist($this->_pspell);
 	}
@@ -535,6 +536,7 @@ class PspellSpellChecker extends GenericSpellChecker {
 	* @param string $word the word to be added to custom word list
 	*/
 	function addWord($word){
+		list($word) = func_get_args();
 		pspell_add_to_personal($this->_pspell, $word);
 		pspell_save_wordlist($this->_pspell);
 	}
