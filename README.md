@@ -11,10 +11,10 @@ Google obviously shut down their Spell checking API (www.google.com/tbproxy/spel
 require_once('spell-check-library.php');
 $content = "";
 $options = array(
-  "lang"					=> 'en',
+	"lang"				=> 'en',
 	"maxSuggestions"		=> 10,
 	"customDict"			=> 0,
-	"charset"				=> 'utf-8'
+	"charset"			=> 'utf-8'
 );
 $factory = new SpellChecker($options);
 
