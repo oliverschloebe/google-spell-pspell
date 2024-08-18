@@ -1,7 +1,9 @@
-![GitHub License](https://img.shields.io/github/license/oliverschloebe/google-spell-pspell)
-
-
 # google-spell-pspell
+
+[![License](https://img.shields.io/packagist/l/oliverschloebe/google-spell-pspell.svg)](https://github.com/oliverschloebe/google-spell-pspell/blob/main/LICENSE)
+[![Latest Stable Version](https://img.shields.io/packagist/v/oliverschloebe/google-spell-pspell.svg)](https://packagist.org/packages/oliverschloebe/google-spell-pspell)
+[![Latest Version](https://img.shields.io/github/release/oliverschloebe/google-spell-pspell.svg?style=flat-square)](https://github.com/oliverschloebe/google-spell-pspell/releases)
+[![Source Code](https://img.shields.io/badge/source-oliverschloebe/google--spell--pspell-blue.svg?style=flat-square)](https://github.com/oliverschloebe/google-spell-pspell)
 
 A PHP Pspell substitute for Google Spell Check XML API. Pspell is required in order to work on your server.
 
