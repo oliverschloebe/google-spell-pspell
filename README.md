@@ -1,3 +1,6 @@
+![GitHub License](https://img.shields.io/github/license/oliverschloebe/google-spell-pspell)
+
+
 # google-spell-pspell
 
 A PHP Pspell substitute for Google Spell Check XML API. Pspell is required in order to work on your server.
@@ -8,7 +11,7 @@ Google obviously shut down their Spell checking API (www.google.com/tbproxy/spel
 
 ## Usage
 ```php
-require_once('spell-check-library.php');
+require_once 'spell-check-library.php';
 $content = "";
 $options = array(
 	"lang"				=> 'en',
